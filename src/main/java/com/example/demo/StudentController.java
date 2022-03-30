@@ -15,18 +15,18 @@ import java.util.List;
  */
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class StudentController {
 
     private final StudentRepo studentRepo;
 
-    @GetMapping("")
+    @GetMapping("/")
     public List<Student> getAllStudent() {
         return studentRepo.findAll();
     }
 
-    @PostMapping(value = "", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addStudent(@RequestBody Student student) {
         studentRepo.save(student);
         return new ResponseEntity<>("Student saved!", HttpStatus.CREATED);
