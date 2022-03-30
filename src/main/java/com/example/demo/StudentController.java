@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import java.util.List;
  * @created Mar 30, 2022 11:27 PM
  */
 
-@RestController
+@Controller
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class StudentController {
@@ -22,9 +23,14 @@ public class StudentController {
     private final StudentRepo studentRepo;
 
     @GetMapping("/")
-    public List<Student> getAllStudent() {
-        return studentRepo.findAll();
+    public String greet() {
+        return "Hello, World!";
     }
+
+//    @GetMapping("/")
+//    public List<Student> getAllStudent() {
+//        return studentRepo.findAll();
+//    }
 
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addStudent(@RequestBody Student student) {
