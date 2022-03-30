@@ -15,7 +15,7 @@ import java.util.List;
  * @created Mar 30, 2022 11:27 PM
  */
 
-@Controller
+@RestController
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class StudentController {
