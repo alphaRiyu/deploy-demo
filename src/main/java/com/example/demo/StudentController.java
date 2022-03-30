@@ -23,14 +23,9 @@ public class StudentController {
     private final StudentRepo studentRepo;
 
     @GetMapping("/")
-    public String greet() {
-        return "Hello, World!";
+    public List<Student> getAllStudent() {
+        return studentRepo.findAll();
     }
-
-//    @GetMapping("/")
-//    public List<Student> getAllStudent() {
-//        return studentRepo.findAll();
-//    }
 
     @PostMapping(value = "/", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<String> addStudent(@RequestBody Student student) {
